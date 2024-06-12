@@ -9,14 +9,15 @@ class Snake:
     def __init__(self):
         self.snake_body = []
 
-
+    def start(self):
         x_axis = 0
         for i in range(3):
             new_body = Turtle()
             new_body.penup()
             new_body.shape("square")
-            new_body.color("white")
+            new_body.color("dark green")
             self.snake_body.append(new_body)
+            self.snake_body[0].color("forest green")
             new_body.goto(x_axis, 0)
             x_axis -= 20
 
@@ -50,6 +51,20 @@ class Snake:
     def right(self):
         if self.snake_body[0].heading() != LEFT:   # Denying RIGHT movement if Head is currently heading LEFT
             self.snake_body[0].setheading(RIGHT)
+
+
+    def increase_size(self):
+        add_body = Turtle()
+        add_body.penup()
+        add_body.shape("square")
+        add_body.color("dark green")
+        # Make sure to spawn New body part to the coordinate of the Tail (the very end)
+        tail_xcor = self.snake_body[len(self.snake_body) - 1].xcor()
+        tail_ycor = self.snake_body[len(self.snake_body) - 1].ycor()
+        add_body.goto(tail_xcor, tail_ycor)
+        # Finally, add the new body to the snake body
+        self.snake_body.append(add_body)
+
 
 
 
