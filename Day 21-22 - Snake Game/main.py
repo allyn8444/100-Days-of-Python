@@ -12,7 +12,7 @@ screen.listen()  # Listen for key presses
 
 screen.tracer(0)  # Set off delay in animation of turtle
 
-screen.title("Snake Game")
+screen.title("Day 21-22 - Snake Game Game")
 
 snake = Snake()
 snake.start()
